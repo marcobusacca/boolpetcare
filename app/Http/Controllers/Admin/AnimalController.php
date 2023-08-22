@@ -20,6 +20,17 @@ class AnimalController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Animal  $animal
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Animal $animal)
+    {
+        //
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -36,17 +47,6 @@ class AnimalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAnimalRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Animal  $animal
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Animal $animal)
     {
         //
     }
