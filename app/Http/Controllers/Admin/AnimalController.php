@@ -59,7 +59,7 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        //
+        return view('admin.animals.edit', compact('animal'));
     }
 
     /**
@@ -71,7 +71,11 @@ class AnimalController extends Controller
      */
     public function update(UpdateAnimalRequest $request, Animal $animal)
     {
-        //
+        $form_data = $request->all();
+
+        $animal->update($form_data);
+
+        return redirect()->route('admin.animals.show', $animal->id);
     }
 
     /**
