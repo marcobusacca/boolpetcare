@@ -34,7 +34,7 @@
                                     <a href="{{ route('admin.animals.edit', $animal) }}" class="btn btn-warning mx-1">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <form class="animal-delete-button d-inline-block mx-1" data-animal-nome="{{ $animal->nome }}" action="{{ route('admin.animals.destroy', $animal) }}" method="POST">
+                                    <form class="animal-delete-button d-inline-block mx-1" data-animal-nome="{{ $animal->nome }}" action="{{ route('admin.animals.destroy', $animal) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler cancellare questo Animale?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
