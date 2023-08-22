@@ -21,6 +21,9 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 d-flex justify-content-center align-items-center my-5">
+            <a href="{{ Route('admin.animals.index') }}" class="btn btn-primary">Animali</a>
+        </div>
     </div>
 </div>
 @endsection
