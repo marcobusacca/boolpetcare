@@ -25,7 +25,7 @@
                 @method('PUT')
                 <div class="form-group">
                     <label class="control-label" >Nome</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="name" value="{{old('nome') ?? $animal->nome}}">
+                    <input type="text" id="nome" name="nome" class="form-control" placeholder="nome" value="{{old('nome') ?? $animal->nome}}">
                 </div>
               
                 <div class="form-group">
