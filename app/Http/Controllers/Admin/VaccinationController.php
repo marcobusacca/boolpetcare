@@ -37,7 +37,7 @@ class VaccinationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.vaccinations.create');
     }
 
     /**
@@ -48,7 +48,16 @@ class VaccinationController extends Controller
      */
     public function store(StoreVaccinationRequest $request)
     {
-        //
+        $form_data = $request->all();
+
+        $vaccination = new Vaccination();
+
+
+        $vaccination->fill($form_data);
+
+        $vaccination->save();
+
+        return redirect()->route('admin.vaccinations.index');
     }
 
     /**
