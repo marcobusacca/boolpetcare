@@ -11,9 +11,9 @@ class Vaccination extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['animal_id', 'nome', 'data_di_vaccinazione', 'dosaggio', 'note_aggiuntive'];
+    protected $fillable = ['nome'];
 
-    public function animal(){
-        return $this->belongsTo(Animal::class);
+    public function animals(){
+        return $this->belongsToMany(Animal::class);
     }
 }

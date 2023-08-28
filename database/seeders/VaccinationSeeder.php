@@ -20,11 +20,8 @@ class VaccinationSeeder extends Seeder
             $vaccination = new Vaccination();
 
             $vaccination->nome = $faker->word();
-            $vaccination->data_di_vaccinazione = $faker->date();
-            $vaccination->dosaggio = $faker->randomDigit();
-            $vaccination->note_aggiuntive= $faker->paragraph();
     
-            $vaccination->save(); 
+            $vaccination->save();
         }
     }
 }
