@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
+use App\Models\Vaccination;
 use App\Http\Requests\StoreAnimalRequest;
 use App\Http\Requests\UpdateAnimalRequest;
 
@@ -39,7 +40,9 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return view('admin.animals.create');
+        $vaccinations = Vaccination::all();
+
+        return view('admin.animals.create', compact('vaccinations'));
     }
 
     /**
@@ -54,12 +57,16 @@ class AnimalController extends Controller
 
         $animal = new Animal();
 
+        if ($request->has('vaccinations')){
+
+            $animal->vaccinations()->attach($request->vaccinations);
+        }
 
         $animal->fill($form_data);
 
         $animal->save();
 
-        return redirect()->route('admin.animals.index');
+        return redirect()->route('admin.animals.index')->with('message', 'Creazione Animale Completata');
     }
 
     /**
@@ -70,7 +77,9 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        return view('admin.animals.edit', compact('animal'));
+        $vaccinations = Vaccination::all();
+
+        return view('admin.animals.edit', compact('animal', 'vaccinations'));
     }
 
     /**
@@ -84,9 +93,14 @@ class AnimalController extends Controller
     {
         $form_data = $request->all();
 
+        if ($request->has('vaccinations')){
+
+            $animal->vaccinations()->sync($request->vaccinations);
+        }
+
         $animal->update($form_data);
 
-        return redirect()->route('admin.animals.show', $animal->id);
+        return redirect()->route('admin.animals.show', $animal->id)->with('message', 'Modifica Animale Completata');
     }
 
     /**
@@ -97,7 +111,13 @@ class AnimalController extends Controller
      */
     public function destroy(Animal $animal)
     {
+        if ($request->has('vaccinations')){
+
+            $animal->vaccinations()->detach();
+        }
+
         $animal->delete();
-        return redirect()->route('admin.animals.index');
+
+        return redirect()->route('admin.animals.index')->with('message', 'Cancellazione Animale Completata');
     }
 }
