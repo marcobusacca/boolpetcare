@@ -25,26 +25,41 @@ class StoreAnimalRequest extends FormRequest
      public function rules()
     {
         return [
-            'nome'=> 'required|max:50',
-            'specie'=> 'required|max:50',
-            'data_di_nascita'=> 'requiered',
-            'genere'=>'required',
-            'nome_proprietario'=> 'requiered',
-            'cognome_proprietario'=> 'requiered',
+            'nome' => 'required|max:50',
+
+            'specie' => 'required|max:50',
+
+            'data_di_nascita' => 'required',
+
+            'genere' =>'required',
+
+            'nome_proprietario' => 'required',
+
+            'cognome_proprietario' => 'required',
+
+
+            'vaccinations' => 'required|exists.vaccinations,id',
         ];
     }
 
     public function messages(){
         return [
-            'name.required'=> 'Questo animale deve avere un nome!',
-            'name.max'=> 'Il nome di questo animale è troppo lungo! Meglio non superare i :max caratteri.',
-            'specie.required'=> 'L\'animale deve appartenere ad una specie.',
-            'specie.max'=> 'La specie di questo animale è troppo lunga! Meglio non superare i :max caratteri.',
-            'data_di_nascita.required'=> 'Questo animale deve avere una data di nascita.',
-            'genere.required'=>'L\'animale deve avere un sesso',
-            'nome_proprietario.requiered'=> 'Il proprietario deve avere un nome',
-            'cognome_proprietario.requiered'=> 'Il proprietario deve avere un cognome',
+            'nome.required' => 'Questo animale deve avere un nome!',
+            'nome.max' => 'Il nome di questo animale è troppo lungo! Meglio non superare i :max caratteri.',
+
+            'specie.required' => 'L\'animale deve appartenere ad una specie.',
+            'specie.max' => 'La specie di questo animale è troppo lunga! Meglio non superare i :max caratteri.',
+
+            'data_di_nascita.required' => 'Questo animale deve avere una data di nascita.',
+
+            'genere.required' => 'L\'animale deve avere un sesso',
+
+            'nome_proprietario.required' => 'Il proprietario deve avere un nome',
+
+            'cognome_proprietario.required' => 'Il proprietario deve avere un cognome',
+
+            'vaccinations.required' => 'Devi selezionare almeno una Vaccinazione',
+            'vaccinations.exists' => 'Vaccinazione selezionata non valida',
         ];
     }
-    
 }

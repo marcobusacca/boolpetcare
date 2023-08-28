@@ -24,7 +24,14 @@ class StoreVaccinationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nome' => 'required|max:50',
+        ];
+    }
+
+    public function messages(){
+        return [
+            'nome.required' => 'Il nome della vaccinazione è obbligatorio',
+            'nome.max' => 'Il nome della vaccinazione deve avere massimo :max caratteri',
         ];
     }
 }
