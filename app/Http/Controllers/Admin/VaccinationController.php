@@ -87,11 +87,6 @@ class VaccinationController extends Controller
     {
         $form_data = $request->all();
 
-        if($request->has('animals')){
-			$animals = $request->input('animals');
-			$vaccinations->animals()->sync($request->animals);
-		}
-
         $name_vaccination = $vaccination->name;
 
         $vaccination->update($form_data);
@@ -107,10 +102,7 @@ class VaccinationController extends Controller
      */
     public function destroy(Vaccination $vaccination)
     {
-        if ($request->has('animals')){
-
-            $vaccination->animals()->detach();
-        }
+        $vaccination->animals()->detach();
 
         $name_vaccination = $vaccination->name;
 

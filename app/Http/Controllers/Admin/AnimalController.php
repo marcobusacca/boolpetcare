@@ -111,10 +111,7 @@ class AnimalController extends Controller
      */
     public function destroy(Animal $animal)
     {
-        if ($request->has('vaccinations')){
-
-            $animal->vaccinations()->detach();
-        }
+        $animal->vaccinations()->detach();
 
         $animal->delete();
 
