@@ -22,8 +22,8 @@
             </div>
         </div>
         <div class="col-12 d-flex justify-content-center align-items-center my-5">
-            <a href="{{ Route('admin.animals.index') }}" class="btn btn-primary">Animali</a>
-            <a href="{{ Route('admin.vaccinations.index') }}" class="btn btn-primary">Vaccinazioni</a>
+            <a href="{{ Route('admin.animals.index') }}" class="btn btn-primary mx-3">Animali</a>
+            <a href="{{ Route('admin.vaccinations.index') }}" class="btn btn-primary mx-3">Vaccinazioni</a>
         </div>
     </div>
 </div>
