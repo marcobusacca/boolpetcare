@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             // ANIMAL_ID FOREIGN KEY
-            $table->unsignedBigInteger('animal_id');
+            $table->unsignedBigInteger('animal_id')->nullable();
             $table->foreign('animal_id')->references('id')->on('animals')->onDelete('set null');
 
             $table->string('nome', 50);
