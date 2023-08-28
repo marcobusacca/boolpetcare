@@ -9,17 +9,6 @@
         <div class="col-6 d-flex justify-content-end align-items-end mb-5">
             <a href="{{route('admin.animals.index' )}}" class="btn btn-primary">Tutti gli animali</a>
         </div>
-        <div class="col-12 mt-5">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
         <div class="col-12">
             <form action="{{ route('admin.animals.store')}}" method="POST">
                 @csrf
@@ -71,6 +60,18 @@
                     @error('note_aggiuntive')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
+                </div>
+                <div class="form-group mt-4">
+                    <span>Seleziona le Vaccinazioni Effettuate:</span>
+                        @foreach ($vaccinations as $vaccination)
+                            <div class="my-2">
+                                <input type="checkbox" name="vaccinations[]" value="{{ $vaccination->id }}" {{ in_array($vaccination->id, old('vaccinations', [])) ? 'checked' : ''}} class="form-check-input @error('vaccinations') is-invalid @enderror">
+                                <label class="form-check-label">{{ $vaccination->nome }}</label>
+                            </div>
+                        @endforeach
+                        @error('vaccinations')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                 </div>
                 <div class="col-12 d-flex justify-content-center align-items-center my-5">
                     <button class="btn btn-success fw-bold px-5" type="submit">CREA</button>

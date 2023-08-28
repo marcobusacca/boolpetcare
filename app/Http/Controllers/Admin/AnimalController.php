@@ -57,14 +57,14 @@ class AnimalController extends Controller
 
         $animal = new Animal();
 
+        $animal->fill($form_data);
+
+        $animal->save();
+
         if ($request->has('vaccinations')){
 
             $animal->vaccinations()->attach($request->vaccinations);
         }
-
-        $animal->fill($form_data);
-
-        $animal->save();
 
         return redirect()->route('admin.animals.index')->with('message', 'Creazione Animale Completata');
     }

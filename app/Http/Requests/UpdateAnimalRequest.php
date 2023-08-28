@@ -38,7 +38,7 @@ class UpdateAnimalRequest extends FormRequest
             'cognome_proprietario' => 'required',
 
 
-            'vaccinations' => 'required|exists.vaccinations,id',
+            'vaccinations' => 'required|exists:vaccinations,id',
         ];
     }
 
