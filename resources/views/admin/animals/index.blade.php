@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container my-5">
         <div class="row">
-            <div class="col-6 d-flex justify-content-start align-items-end my-5">
+            <div class="col-6 d-flex justify-content-start align-items-end mb-5">
                 <h1>Lista Animali</h1>
             </div>
-            <div class="col-6 d-flex justify-content-end align-items-end my-5">
+            <div class="col-6 d-flex justify-content-end align-items-end mb-5">
                 <a href="{{ Route('admin.dashboard') }}" class="btn btn-primary">Dashboard</a>
             </div>
             <div class="col-12">

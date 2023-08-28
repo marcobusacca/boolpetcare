@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container d-flex">
+<div class="container my-5">
     <div class="col-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 Paziente n°{{$animal['id']}}
-                <a class="btn btn-primary" href="{{url('admin/animals')}}">Torna indietro</a>
+                <a class="btn btn-primary" href="{{url('admin/animals')}}">Tutti gli animali</a>
             </div>
             <div class="card-body">
                 <div class="card-title d-flex">

@@ -1,11 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container mt-5">
+<div class="container my-5">
     <div class="row justify-content-between">
-        <div class="col-12">
+        <div class="col-6 d-flex justify-content-start align-items-end mb-5">
             <h1>Aggiungi una nuova bestia</h1>
-
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-end mb-5">
+            <a href="{{route('admin.animals.index' )}}" class="btn btn-primary">Tutti gli animali</a>
         </div>
         <div class="col-12 mt-5">
             @if ($errors->any())

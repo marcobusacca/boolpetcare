@@ -3,11 +3,11 @@
 @section('content')
 
 
-<div class="container">
+<div class="container my-5">
     <div class="row">
         <div class="col-12">
             <div class="p-2 mt-2 text-end">
-                <a href="{{route('admin.animals.index' )}}" class="btn btn-primary"> Tutti gli animali</a>
+                <a href="{{route('admin.animals.index' )}}" class="btn btn-primary">Tutti gli animali</a>
             </div>
         </div>
         <div class="col-12 mt-5">
