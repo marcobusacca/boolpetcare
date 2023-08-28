@@ -20,6 +20,17 @@ class VaccinationController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Vaccination  $vaccination
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Vaccination $vaccination)
+    {
+        //
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -36,17 +47,6 @@ class VaccinationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreVaccinationRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Vaccination  $vaccination
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Vaccination $vaccination)
     {
         //
     }
