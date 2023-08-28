@@ -22,7 +22,7 @@
                             <tr class="text-center">
                                 <td>{{ $vaccination->id }}</td>
                                 <td>{{ $vaccination->nome }}</td>
-                                <td>
+                                <td class="d-flex justify-content-end">
                                     <a href="{{ route('admin.vaccinations.show', $vaccination) }}" class="btn btn-info mx-1">
                                         <i class="fas fa-eye"></i>
                                     </a>
