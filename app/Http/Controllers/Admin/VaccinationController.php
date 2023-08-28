@@ -59,7 +59,7 @@ class VaccinationController extends Controller
      */
     public function edit(Vaccination $vaccination)
     {
-        //
+        return view('admin.vaccinations.edit', compact('vaccination'));
     }
 
     /**
@@ -71,7 +71,11 @@ class VaccinationController extends Controller
      */
     public function update(UpdateVaccinationRequest $request, Vaccination $vaccination)
     {
-        //
+        $form_data = $request->all();
+
+        $vaccination->update($form_data);
+
+        return redirect()->route('admin.vaccinations.show', $vaccination->id);
     }
 
     /**
