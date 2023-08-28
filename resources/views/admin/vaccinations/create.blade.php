@@ -9,24 +9,15 @@
         <div class="col-6 d-flex justify-content-end align-items-end mb-5">
             <a href="{{route('admin.vaccinations.index' )}}" class="btn btn-primary">Tutte le vaccinazioni</a>
         </div>
-        <div class="col-12 mt-5">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
         <div class="col-12">
             <form action="{{ route('admin.vaccinations.store')}}" method="POST">
                 @csrf
                 <div class="form-group mt-4">
                     <label class="control-label">Nome vaccinazione</label>
-                    <input type="text" name="nome" id="nome" class="form-control" placeholder="Inserisci nome vaccinazione" value="{{ old ('nome')}}">
-
+                    <input type="text" name="nome" id="nome" class="form-control @error('nome') is-invalid @enderror" placeholder="Inserisci nome vaccinazione" value="{{ old ('nome')}}" required>
+                    @error('nome')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-12 d-flex justify-content-center align-items-center my-5">
                     <button class="btn btn-success fw-bold px-5" type="submit">CREA</button>
