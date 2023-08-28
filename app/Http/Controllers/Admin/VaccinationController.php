@@ -104,10 +104,10 @@ class VaccinationController extends Controller
     {
         $vaccination->animals()->detach();
 
-        $name_vaccination = $vaccination->name;
+        $nome_vaccination = $vaccination->nome;
 
         $vaccination->delete();
 
-        return redirect()->route('admin.vaccinations.index')->with('message', "vaccino: '$name_vaccination' cancellato correttamente");
+        return redirect()->route('admin.vaccinations.index')->with('message', "vaccino: '$nome_vaccination' cancellato correttamente");
     }
 }
