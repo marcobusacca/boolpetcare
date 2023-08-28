@@ -70,7 +70,9 @@ class VaccinationController extends Controller
      */
     public function edit(Vaccination $vaccination)
     {
-        //
+        $animals = Animal::all();
+        $vaccinations = Vaccination::all();
+        return view('admin.vaccinations.edit', compact('vaccination','animals'));
     }
 
     /**
@@ -82,7 +84,16 @@ class VaccinationController extends Controller
      */
     public function update(UpdateVaccinationRequest $request, Vaccination $vaccination)
     {
-        //
+        $form_data = $request->all();
+
+        if($request->has('animals')){
+			$animals = $request->input('animals');
+			$vaccinations->animals()->sync($request->animals);
+		}
+
+        $vaccination->update($form_data);
+
+        return redirect()->route('admin.vaccinations.show', $vaccination->id, 'animals');
     }
 
     /**
