@@ -16,7 +16,9 @@ class VaccinationController extends Controller
      */
     public function index()
     {
-        //
+        $vaccinations = Vaccination::all();
+
+        return view('admin.vaccinations.index', compact('vaccinations'));
     }
 
     /**
@@ -27,7 +29,7 @@ class VaccinationController extends Controller
      */
     public function show(Vaccination $vaccination)
     {
-        //
+        return view('admin.vaccinations.show', compact('vaccination'));
     }
 
     /**
