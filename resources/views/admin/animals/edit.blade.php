@@ -66,13 +66,48 @@
                 <div class="form-group mt-4">
                     <span>Seleziona le Vaccinazioni Effettuate:</span>
                     @foreach ($vaccinations as $vaccination)
-                        <div class="my-2">
-                            @if ($errors->any())
-                                <input type="checkbox" name="vaccinations[]" value="{{ $vaccination->id }}" {{ in_array($vaccination->id, old('vaccinations', [])) ? 'checked' : ''}} class="form-check-input @error('vaccinations') is-invalid @enderror">
-                            @else
-                                <input type="checkbox" name="vaccinations[]" value="{{ $vaccination->id }}" {{ $animal->vaccinations->contains($vaccination) ? 'checked' : ''}} class="form-check-input @error('vaccinations') is-invalid @enderror">
-                            @endif
-                            <label class="form-check-label">{{ $vaccination->nome }}</label>
+                        <div class="my-5">
+                            <div class="my-2">
+                                @if ($errors->any())
+                                    <!-- VACCINATION CHECKBOX -->
+                                    <input type="checkbox" name="vaccinations[]" value="{{ $vaccination->id }}" {{ in_array($vaccination->id, old('vaccinations', [])) ? 'checked' : ''}} class="form-check-input @error('vaccinations') is-invalid @enderror">
+                                @else
+                                    <!-- VACCINATION CHECKBOX -->
+                                    <input type="checkbox" name="vaccinations[]" value="{{ $vaccination->id }}" {{ $animal->vaccinations->contains($vaccination) ? 'checked' : ''}} class="form-check-input @error('vaccinations') is-invalid @enderror">
+                                @endif
+                                <!-- VACCINATION LABEL -->
+                                <label class="form-check-label">{{ $vaccination->nome }}</label>
+                            </div>
+                            <div class="my-2">
+                                <!-- DATE OF VACCINATION LABEL -->
+                                <label class="form-check-label">Data di Vaccinazione:</label>
+                                <!-- DATE OF VACCINATION INPUT -->
+                                <input type="date" name="data_di_vaccinazione" id="data_di_vaccinazione" class="form-control @error('data_di_vaccinazione') is-invalid @enderror" placeholder="Inserisci data di vaccinazione" value="{{ old('data_di_vaccinazione') ?? $animal->vaccinations->data_di_vaccinazione }}" required>
+                                <!-- DATE OF VACCINATION ERROR -->
+                                @error('data_di_vaccinazione')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="my-2">
+                                <!-- DOSAGE OF VACCINATION LABEL -->
+                                <label class="form-check-label">Dosaggio della Vaccinazione:</label>
+                                <!-- DOSAGE OF VACCINATION INPUT -->
+                                <input type="number" name="dosaggio" id="dosaggio" class="form-control @error('dosaggio') is-invalid @enderror" placeholder="Inserisci il dosaggio" value="{{ old('dosaggio') ?? $animal->vaccinations->dosaggio }}" required>
+                                <!-- DOSAGE OF VACCINATION ERROR -->
+                                @error('dosaggio')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="my-2">
+                                <!-- NOTES OF VACCINATION LABEL -->
+                                <label class="form-check-label">Note Aggiuntive:</label>
+                                <!-- NOTES OF VACCINATION TEXTAREA -->
+                                <textarea name="note_aggiuntive" id="note_aggiuntive" class="form-control @error('note_aggiuntive') is-invalid @enderror" placeholder="Inserisci note aggiuntive">{{old('note_aggiuntive') ?? $animal->vaccinations->note_aggiuntive}}</textarea>
+                                <!-- NOTES OF VACCINATION ERROR -->
+                                @error('note_aggiuntive')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                     @endforeach
                     @error('vaccinations')

@@ -63,7 +63,20 @@ class AnimalController extends Controller
 
         if ($request->has('vaccinations')){
 
-            $animal->vaccinations()->attach($request->vaccinations);
+            $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
+
+            $DosageArray = array_values(array_filter($request->dosaggio));
+
+            foreach($request->vaccinations as $index => $vaccination){
+
+                $animal->vaccinations()->attach($vaccination, [
+
+                    'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
+
+                    'dosaggio' => $DosageArray[$index],
+                ]);   
+            }
+
         }
 
         return redirect()->route('admin.animals.index')->with('message', 'Creazione Animale Completata');
