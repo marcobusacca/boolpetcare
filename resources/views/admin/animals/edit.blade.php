@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12">
             <div class="p-2 mt-2 text-end">
-                <a href="{{route('admin.animals.index' )}}" class="btn btn-primary">Tutti gli animali</a>
+                <a href="{{route('admin.animals.index')}}" class="btn btn-primary">Tutti gli animali</a>
             </div>
         </div>
         <div class="col-12 mt-5">
@@ -64,7 +64,7 @@
                     @enderror
                 </div>
                 <div class="form-group mt-4">
-                    <span>Seleziona le Tecnologie:</span>
+                    <span>Seleziona le Vaccinazioni Effettuate:</span>
                     @foreach ($vaccinations as $vaccination)
                         <div class="my-2">
                             @if ($errors->any())

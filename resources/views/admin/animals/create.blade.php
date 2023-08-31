@@ -7,7 +7,7 @@
             <h1>Aggiungi una nuova bestia</h1>
         </div>
         <div class="col-6 d-flex justify-content-end align-items-end mb-5">
-            <a href="{{route('admin.animals.index' )}}" class="btn btn-primary">Tutti gli animali</a>
+            <a href="{{route('admin.animals.index')}}" class="btn btn-primary">Tutti gli animali</a>
         </div>
         <div class="col-12">
             <form action="{{ route('admin.animals.store')}}" method="POST">
