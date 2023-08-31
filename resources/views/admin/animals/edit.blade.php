@@ -82,7 +82,7 @@
                                 <!-- DATE OF VACCINATION LABEL -->
                                 <label class="form-check-label">Data di Vaccinazione:</label>
                                 <!-- DATE OF VACCINATION INPUT -->
-                                <input type="date" name="data_di_vaccinazione[]" id="data_di_vaccinazione" class="form-control @error('data_di_vaccinazione') is-invalid @enderror" placeholder="Inserisci data di vaccinazione" value="{{ old('data_di_vaccinazione') ?? $animal->vaccinations->data_di_vaccinazione }}" required>
+                                <input type="date" name="data_di_vaccinazione[]" id="data_di_vaccinazione" class="form-control @error('data_di_vaccinazione') is-invalid @enderror" placeholder="Inserisci data di vaccinazione" value="{{ old('data_di_vaccinazione') }}">
                                 <!-- DATE OF VACCINATION ERROR -->
                                 @error('data_di_vaccinazione')
                                     <div class="text-danger">{{ $message }}</div>
@@ -92,7 +92,7 @@
                                 <!-- DOSAGE OF VACCINATION LABEL -->
                                 <label class="form-check-label">Dosaggio della Vaccinazione:</label>
                                 <!-- DOSAGE OF VACCINATION INPUT -->
-                                <input type="number" name="dosaggio[]" id="dosaggio" class="form-control @error('dosaggio') is-invalid @enderror" placeholder="Inserisci il dosaggio" value="{{ old('dosaggio') ?? $animal->vaccinations->dosaggio }}" required>
+                                <input type="text" name="dosaggio[]" id="dosaggio" class="form-control @error('dosaggio') is-invalid @enderror" placeholder="Inserisci il dosaggio" value="{{ old('dosaggio') }}">
                                 <!-- DOSAGE OF VACCINATION ERROR -->
                                 @error('dosaggio')
                                     <div class="text-danger">{{ $message }}</div>
@@ -102,7 +102,7 @@
                                 <!-- NOTES OF VACCINATION LABEL -->
                                 <label class="form-check-label">Note Aggiuntive:</label>
                                 <!-- NOTES OF VACCINATION TEXTAREA -->
-                                <textarea name="note_vaccino[]" id="note_vaccino" class="form-control @error('note_vaccino') is-invalid @enderror" placeholder="Inserisci note aggiuntive">{{old('note_vaccino') ?? $animal->vaccinations->note_vaccino}}</textarea>
+                                <textarea name="note_vaccino[]" id="note_vaccino" class="form-control @error('note_vaccino') is-invalid @enderror" placeholder="Inserisci note aggiuntive">{{ old('note_vaccino') }}</textarea>
                                 <!-- NOTES OF VACCINATION ERROR -->
                                 @error('note_vaccino')
                                     <div class="text-danger">{{ $message }}</div>
