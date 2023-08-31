@@ -85,22 +85,22 @@
                                     <!-- DOSAGE OF VACCINATION LABEL -->
                                     <label class="form-check-label">Dosaggio della Vaccinazione:</label>
                                     <!-- DOSAGE OF VACCINATION INPUT -->
-                                    <input type="text" name="dosaggio[{{$vaccination->nome}}]" id="dosaggio" class="form-control @error('dosaggio') is-invalid @enderror" placeholder="Inserisci il dosaggio" value="{{ old('dosaggio')}}">
+                                    <input type="text" name="dosaggio[]" id="dosaggio" class="form-control @error('dosaggio') is-invalid @enderror" placeholder="Inserisci il dosaggio" value="{{ old('dosaggio')}}">
                                     <!-- DOSAGE OF VACCINATION ERROR -->
                                     @error('dosaggio')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                {{-- <div class="my-2">
+                                <div class="my-2">
                                     <!-- NOTES OF VACCINATION LABEL -->
                                     <label class="form-check-label">Note Aggiuntive:</label>
                                     <!-- NOTES OF VACCINATION TEXTAREA -->
-                                    <textarea name="note_aggiuntive[{{$vaccination->nome}}]" id="note_aggiuntive" class="form-control @error('note_aggiuntive') is-invalid @enderror" placeholder="Inserisci note aggiuntive">{{ old('note_aggiuntive')}}</textarea>
+                                    <textarea name="note_vaccino[]" id="note_vaccino" class="form-control @error('note_vaccino') is-invalid @enderror" placeholder="Inserisci note aggiuntive">{{ old('note_vaccino')}}</textarea>
                                     <!-- NOTES OF VACCINATION ERROR -->
-                                    @error('note_aggiuntive')
+                                    @error('note_vaccino')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
-                                </div> --}}
+                                </div>
                             </div>
                         @endforeach
                         @error('vaccinations')

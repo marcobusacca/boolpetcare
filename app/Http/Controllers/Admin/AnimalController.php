@@ -67,6 +67,8 @@ class AnimalController extends Controller
 
             $DosageArray = array_values(array_filter($request->dosaggio));
 
+            $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
+
             foreach($request->vaccinations as $index => $vaccination){
 
                 $animal->vaccinations()->attach($vaccination, [
@@ -74,6 +76,8 @@ class AnimalController extends Controller
                     'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
 
                     'dosaggio' => $DosageArray[$index],
+
+                    'note_vaccino' => $NoteOfVaccinationArray[$index],
                 ]);   
             }
 
