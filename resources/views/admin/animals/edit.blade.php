@@ -22,13 +22,6 @@
                     @enderror
                 </div>
                 <div class="form-group mt-4">
-                    <label class="control-label">Specie</label>
-                    <input type="text" id="specie" name="specie" class="form-control @error('specie') is-invalid @enderror" placeholder="specie" value="{{old('specie') ?? $animal->specie}}" required>
-                    @error('specie')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group mt-4">
                     <label class="control-label">Data di nascita</label>
                     <input type="date" id="data_di_nascita" name="data_di_nascita" class="form-control @error('data_di_nascita') is-invalid @enderror" placeholder="data_di_nascita" value="{{old('data_di_nascita') ?? $animal->data_di_nascita}}" required>
                     @error('data_di_nascita')
@@ -39,20 +32,6 @@
                     <label class="control-label">Genere</label>
                     <input type="text" id="genere" name="genere" class="form-control @error('genere') is-invalid @enderror" placeholder="genere" value="{{old('genere') ?? $animal->genere}}" required>
                     @error('genere')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group mt-4">
-                    <label class="control-label">Nome del proprietario</label>
-                    <input type="text" id="nome_proprietario" name="nome_proprietario" class="form-control @error('nome_proprietario') is-invalid @enderror" placeholder="nome_proprietario" value="{{old('nome_proprietario') ?? $animal->nome_proprietario}}" required>
-                    @error('nome_proprietario')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group mt-4">
-                    <label class="control-label">Cognome del proprietario</label>
-                    <input type="text" id="cognome_proprietario" name="cognome_proprietario" class="form-control @error('cognome_proprietario') is-invalid @enderror" placeholder="cognome_proprietario" value="{{old('cognome_proprietario') ?? $animal->cognome_proprietario}}" required>
-                    @error('cognome_proprietario')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>

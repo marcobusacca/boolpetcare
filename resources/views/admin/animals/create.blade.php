@@ -20,13 +20,6 @@
                     @enderror
                 </div>
                 <div class="form-group mt-4">
-                    <label class="control-label">Specie</label>
-                    <input type="text" name="specie" id="specie" class="form-control @error('specie') is-invalid @enderror" placeholder="Inserisci specie" value="{{ old('specie')}}" required>
-                    @error('specie')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group mt-4">
                     <label class="control-label">Data di nascita</label>
                     <input type="date" name="data_di_nascita" id="data_di_nascita" class="form-control @error('data_di_nascita') is-invalid @enderror" placeholder="Inserisci data di nascita" value="{{ old('data_di_nascita')}}" required>
                     @error('data_di_nascita')
@@ -40,20 +33,6 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="form-group mt-4">
-                    <label class="control-label">Nome proprietario</label>
-                    <input type="text" name="nome_proprietario" id="nome_proprietario" class="form-control @error('nome_proprietario') is-invalid @enderror" placeholder="Inserisci nome proprietario" value="{{ old('nome_proprietario')}}" required>
-                    @error('nome_proprietario')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group mt-4">
-                    <label class="control-label">Cognome proprietario</label>
-                    <input type="text" name="cognome_proprietario" id="cognome_proprietario" class="form-control @error('cognome_proprietario') is-invalid @enderror" placeholder="Inserisci cognome proprietario" value="{{ old('cognome_proprietario')}}" required>
-                    @error('cognome_proprietario')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>  
                 <div class="form-group mt-4">
                     <label class="control-label">Note aggiuntive</label>
                     <textarea name="note_aggiuntive" id="note_aggiuntive" class="form-control @error('note_aggiuntive') is-invalid @enderror" placeholder="Inserisci note aggiuntive">{{ old('note_aggiuntive')}}</textarea>
