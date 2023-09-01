@@ -36,7 +36,7 @@ class LeadController extends Controller
         //SALVO I DATI NEL DATABASE
         $new_lead = new Lead();
 
-        $new_lead->fill($data);
+        $new_lead->fill($form_data);
 
         $new_lead->save();
 
