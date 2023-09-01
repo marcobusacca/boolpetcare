@@ -42,7 +42,7 @@ class LeadController extends Controller
 
 
         // INVIO LA MAIL
-        Mail::to('contact@boolfolio.com')->send(new NewContact($new_lead));
+        Mail::to('contact@boolpetcare.com')->send(new NewContact($new_lead));
 
 
         return response()->json([
