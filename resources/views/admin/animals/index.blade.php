@@ -15,7 +15,6 @@
                         <tr class="text-center">
                             <th>ID</th>
                             <th>Nome</th>
-                            <th>Specie</th>
                             <th>Data di Nascita</th>
                             <th>Strumenti</th>
                         </tr>
@@ -25,7 +24,6 @@
                             <tr class="text-center">
                                 <td>{{ $animal->id }}</td>
                                 <td>{{ $animal->nome }}</td>
-                                <td>{{ $animal->specie }}</td>
                                 <td>{{ $animal->data_di_nascita }}</td>
                                 <td>
                                     <a href="{{ route('admin.animals.show', $animal) }}" class="btn btn-info mx-1">
