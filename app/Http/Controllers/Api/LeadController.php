@@ -13,10 +13,11 @@ class LeadController extends Controller
     //CREO LA FUNZIONE STORE
 
     public function store(Request $request){
-        $data = $request->all();
 
-            // VALIDIAMO I DATI
-        $validator = Validator::make($data,[
+        $form_data = $request->all();
+
+        // VALIDIAMO I DATI
+        $validator = Validator::make($form_data, [
             'name'    => 'required',
             'email'   => 'required|email',
             'content' => 'required',
@@ -25,29 +26,25 @@ class LeadController extends Controller
         // VERIFICO SE LA RICHIESTA NON VA A BUON FINE
         if($validator->fails()){
 
-
             return response()->json([
                 'success' => false,
-            'errors' =>  $validator->errors()
-
+                'errors' =>  $validator->errors()
             ]);
             
         };
 
-
         //SALVO I DATI NEL DATABASE
         $new_lead = new Lead();
-        $new_lead->fill($data);
-        $new_lead->save();
 
+        $new_lead->fill($data);
+
+        $new_lead->save();
 
         // INVIO LA MAIL
         Mail::to('contact@boolpetcare.com')->send(new NewContact($new_lead));
 
-
         return response()->json([
             'success' => true
         ]);
-
     }
 }
