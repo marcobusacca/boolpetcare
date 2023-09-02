@@ -43,6 +43,7 @@ class AnimalController extends Controller
         $vaccinations = Vaccination::all();
 
         return view('admin.animals.create', compact('vaccinations'));
+
     }
 
     /**
@@ -61,29 +62,39 @@ class AnimalController extends Controller
 
         $animal->save();
 
-        if ($request->has('vaccinations')){
+        // GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
 
-            $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
+            // if ($request->has('vaccinations')){
 
-            $DosageArray = array_values(array_filter($request->dosaggio));
+            //     $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
 
-            $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
+            //     $DosageArray = array_values(array_filter($request->dosaggio));
 
-            foreach($request->vaccinations as $index => $vaccination){
+            //     $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
 
-                $animal->vaccinations()->attach($vaccination, [
+            //     foreach($request->vaccinations as $index => $vaccination){
 
-                    'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
+            //         $animal->vaccinations()->attach($vaccination, [
 
-                    'dosaggio' => $DosageArray[$index],
+            //             'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
 
-                    'note_vaccino' => $NoteOfVaccinationArray[$index],
-                ]);   
-            }
+            //             'dosaggio' => $DosageArray[$index],
 
-        }
+            //             'note_vaccino' => $NoteOfVaccinationArray[$index],
+            //         ]);   
+            //     }
 
-        return redirect()->route('admin.animals.index')->with('message', 'Creazione Animale Completata');
+            // }
+
+            // if ($request->has('vaccinations')){
+
+            //     $project->vaccinations()->attach($request->vaccinations);
+            // }
+
+        // FINE GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
+
+
+        return redirect()->route('admin.animals.show', compact('animal'))->with('message', "Creazione Animale Completata");
     }
 
     /**
@@ -110,32 +121,38 @@ class AnimalController extends Controller
     {
         $form_data = $request->all();
 
-        if ($request->has('vaccinations')){
+        // GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
 
-            $animal->vaccinations()->detach();
+            if ($request->has('vaccinations')){
 
-            $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
+                $animal->vaccinations()->detach();
 
-            $DosageArray = array_values(array_filter($request->dosaggio));
+                $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
 
-            $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
+                $DosageArray = array_values(array_filter($request->dosaggio));
 
-            foreach($request->vaccinations as $index => $vaccination){
+                $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
 
-                $animal->vaccinations()->attach($vaccination, [
+                foreach($request->vaccinations as $index => $vaccination){
 
-                    'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
+                    $animal->vaccinations()->attach($vaccination, [
 
-                    'dosaggio' => $DosageArray[$index],
+                        'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
 
-                    'note_vaccino' => $NoteOfVaccinationArray[$index],
-                ]);   
+                        'dosaggio' => $DosageArray[$index],
+
+                        'note_vaccino' => $NoteOfVaccinationArray[$index],
+                    ]);   
+                }
             }
-        }
+
+        // FINE GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
+
 
         $animal->update($form_data);
 
-        return redirect()->route('admin.animals.show', $animal->id)->with('message', 'Modifica Animale Completata');
+        
+        return redirect()->route('admin.animals.show', compact('animal'))->with('message', "Modifica Animale Completata");
     }
 
     /**
@@ -150,6 +167,6 @@ class AnimalController extends Controller
 
         $animal->delete();
 
-        return redirect()->route('admin.animals.index')->with('message', 'Cancellazione Animale Completata');
+        return redirect()->route('admin.animals.index')->with('message', "Cancellazione Animale Completata");
     }
 }

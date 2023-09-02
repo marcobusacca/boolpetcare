@@ -20,14 +20,12 @@ class AnimalSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i = 1; $i <= 10; $i++){
+            
             $animal = new Animal();
 
             $animal->nome = $faker->firstName();
-            $animal->specie = $faker->word();
             $animal->data_di_nascita = $faker->date();
             $animal->genere = $faker->word();
-            $animal->nome_proprietario= $faker->firstName();
-            $animal->cognome_proprietario= $faker->lastName();
             $animal->note_aggiuntive= $faker->paragraph();
     
             $animal->save(); 

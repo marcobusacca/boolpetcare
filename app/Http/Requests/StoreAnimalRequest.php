@@ -38,7 +38,7 @@ class StoreAnimalRequest extends FormRequest
             'cognome_proprietario' => 'required',
 
 
-            'vaccinations' => 'required|exists:vaccinations,id',
+            'vaccinations' => 'exists:vaccinations,id',
         ];
     }
 
@@ -58,7 +58,7 @@ class StoreAnimalRequest extends FormRequest
 
             'cognome_proprietario.required' => 'Il proprietario deve avere un cognome',
 
-            'vaccinations.required' => 'Devi selezionare almeno una Vaccinazione',
+            
             'vaccinations.exists' => 'Vaccinazione selezionata non valida',
         ];
     }

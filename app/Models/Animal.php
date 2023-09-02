@@ -11,7 +11,7 @@ class Animal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'specie', 'data_di_nascita', 'genere', 'nome_proprietario', 'cognome_proprietario', 'note_aggiuntive'];
+    protected $fillable = ['nome', 'data_di_nascita', 'genere', 'note_aggiuntive'];
 
     public function vaccinations(){
         return $this->belongsToMany(Vaccination::class)->withPivot('data_di_vaccinazione', 'dosaggio', 'note_vaccino');

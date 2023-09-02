@@ -7,10 +7,10 @@
             <h1>Aggiungi una nuova vaccinazione</h1>
         </div>
         <div class="col-6 d-flex justify-content-end align-items-end mb-5">
-            <a href="{{route('admin.vaccinations.index' )}}" class="btn btn-primary">Tutte le vaccinazioni</a>
+            <a href="{{ route('admin.vaccinations.index') }}" class="btn btn-primary">Tutte le vaccinazioni</a>
         </div>
         <div class="col-12">
-            <form action="{{ route('admin.vaccinations.store')}}" method="POST">
+            <form action="{{ route('admin.vaccinations.store') }}" method="POST">
                 @csrf
                 <div class="form-group mt-4">
                     <label class="control-label">Nome vaccinazione</label>
@@ -20,7 +20,7 @@
                     @enderror
                 </div>
                 <div class="col-12 d-flex justify-content-center align-items-center my-5">
-                    <button class="btn btn-success fw-bold px-5" type="submit">CREA</button>
+                    <button type="submit" class="btn btn-success fw-bold px-5">CREA</button>
                 </div>
             </form>
         </div>
