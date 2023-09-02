@@ -123,28 +123,28 @@ class AnimalController extends Controller
 
         // GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
 
-            if ($request->has('vaccinations')){
+            // if ($request->has('vaccinations')){
 
-                $animal->vaccinations()->detach();
+            //     $animal->vaccinations()->detach();
 
-                $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
+            //     $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
 
-                $DosageArray = array_values(array_filter($request->dosaggio));
+            //     $DosageArray = array_values(array_filter($request->dosaggio));
 
-                $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
+            //     $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
 
-                foreach($request->vaccinations as $index => $vaccination){
+            //     foreach($request->vaccinations as $index => $vaccination){
 
-                    $animal->vaccinations()->attach($vaccination, [
+            //         $animal->vaccinations()->attach($vaccination, [
 
-                        'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
+            //             'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
 
-                        'dosaggio' => $DosageArray[$index],
+            //             'dosaggio' => $DosageArray[$index],
 
-                        'note_vaccino' => $NoteOfVaccinationArray[$index],
-                    ]);   
-                }
-            }
+            //             'note_vaccino' => $NoteOfVaccinationArray[$index],
+            //         ]);   
+            //     }
+            // }
 
         // FINE GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
 

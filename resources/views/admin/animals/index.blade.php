@@ -49,7 +49,7 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <!-- Animal Delete Button -->
-                                    <form class="animal-delete-button d-inline-block mx-1" data-animal-nome="{{ $animal->nome }}" action="{{ route('admin.animals.destroy', $animal) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler cancellare questo Animale?')">
+                                    <form class="animal-delete-button d-inline-block mx-1" data-animal-nome="{{ $animal->nome }}" action="{{ route('admin.animals.destroy', $animal) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
@@ -69,5 +69,5 @@
             </div>
         </div>
     </div>
-    {{-- @include('admin.partials.modal_animal_delete'); --}}
+    @include('admin.partials.modal_animal_delete');
 @endsection

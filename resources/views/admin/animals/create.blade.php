@@ -13,7 +13,7 @@
             </div>
             <!-- Create Form -->
             <div class="col-12 my-5">
-                <form action="{{ route('admin.animals.store') }}" method="POST">
+                <form action="{{ route('admin.animals.store') }}" method="POST" class="border p-3 w-100">
                     @csrf
                     <!-- Animal Nome Form Group -->
                     <div class="form-group my-4">

@@ -29,7 +29,7 @@
                                     <a href="{{ route('admin.vaccinations.edit', $vaccination) }}" class="btn btn-warning mx-1">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <form class="vaccination-delete-button d-inline-block mx-1" data-vaccination-nome="{{ $vaccination->nome }}" action="{{ route('admin.vaccinations.destroy', $vaccination) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler cancellare questa vaccinazione?')">
+                                    <form class="vaccination-delete-button d-inline-block mx-1" data-vaccination-nome="{{ $vaccination->nome }}" action="{{ route('admin.vaccinations.destroy', $vaccination) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
@@ -49,4 +49,5 @@
             </div>
         </div>
     </div>
+    @include('admin.partials.modal_vaccination_delete');
 @endsection
