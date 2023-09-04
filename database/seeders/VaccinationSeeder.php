@@ -24,7 +24,7 @@ class VaccinationSeeder extends Seeder
 
             $vaccination->nome = $item['nome'];
 
-            $comic->save();
+            $vaccination->save();
         }
     }
 }

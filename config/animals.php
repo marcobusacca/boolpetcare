@@ -3,49 +3,49 @@
 return [
 
     [
-        'nome' => '',
+        'nome' => 'Manolo',
         
-        'data_di_nascita' => '',
+        'data_di_nascita' => '2020/03/29',
         
-        'genere' => '',
+        'genere' => 'Maschio',
         
-        'note_aggiuntive' => '',
+        'note_aggiuntive' => 'monitorare il peso, leggermente obeso',
     ],
     [
-        'nome' => '',
+        'nome' => 'Rhoda',
         
-        'data_di_nascita' => '',
+        'data_di_nascita' => '2019/05/17',
         
-        'genere' => '',
+        'genere' => 'Femmina',
         
-        'note_aggiuntive' => '',
+        'note_aggiuntive' => 'partorito da poco',
     ],
     [
-        'nome' => '',
+        'nome' => 'Nala',
         
-        'data_di_nascita' => '',
+        'data_di_nascita' => '2022/01/10',
         
-        'genere' => '',
+        'genere' => 'Femmina',
         
-        'note_aggiuntive' => '',
+        'note_aggiuntive' => 'risposta positiva post intervento',
     ],
     [
-        'nome' => '',
+        'nome' => 'Gringos',
         
-        'data_di_nascita' => '',
+        'data_di_nascita' => '2018/12/01',
         
-        'genere' => '',
+        'genere' => 'Maschio',
         
-        'note_aggiuntive' => '',
+        'note_aggiuntive' => 'castrato da poco',
     ],
     [
-        'nome' => '',
+        'nome' => 'Brenda',
         
-        'data_di_nascita' => '',
+        'data_di_nascita' => '2023/01/07',
         
-        'genere' => '',
+        'genere' => 'Femmina',
         
-        'note_aggiuntive' => '',
+        'note_aggiuntive' => 'monitorare la crescita',
     ],
 ]
 ?>

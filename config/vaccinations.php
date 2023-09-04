@@ -3,19 +3,19 @@
 return [
 
     [
-        'nome' => '',
+        'nome' => 'parvovirus',
     ],
     [
-        'nome' => '',
+        'nome' => 'cimurro canino',
     ],
     [
-        'nome' => '',
+        'nome' => 'epatite infettiva',
     ],
     [
-        'nome' => '',
+        'nome' => 'leptospirosi',
     ],
     [
-        'nome' => '',
+        'nome' => 'rabbia',
     ],
 ]
 ?>

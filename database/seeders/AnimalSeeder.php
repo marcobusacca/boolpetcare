@@ -27,7 +27,7 @@ class AnimalSeeder extends Seeder
             $animal->genere = $item['genere'];
             $animal->note_aggiuntive = $item['note_aggiuntive'];
 
-            $comic->save();
+            $animal->save();
         }
     }
 }
