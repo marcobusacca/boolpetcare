@@ -202,6 +202,8 @@ class AnimalController extends Controller
     {
         $animal->vaccinations()->detach();
 
+        $animal->diseases()->detach();
+
         $nome_animale = $animal->nome;
 
         $animal->delete();
