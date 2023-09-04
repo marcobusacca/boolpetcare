@@ -66,6 +66,19 @@
                                 @endforeach
                             @endif
                         </div>
+                        <!-- Animal Diseases -->
+                        <div class="my-5">
+                            @if (count($animal->diseases) == 0)
+                                <span>Nessuna Malattia Registrata</span>
+                            @else
+                                <!-- Diseases Label -->
+                                <label class="fw-bold">Malattie:</label>
+                                <!-- List of Diseases -->
+                                @foreach ($animal->diseases as $disease)
+                                    <a href="{{ route('admin.diseases.show', $disease) }}" class="btn btn-sm btn-primary mx-1">{{ $disease->nome }}</a>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
