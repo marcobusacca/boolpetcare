@@ -17,7 +17,7 @@ class Animal extends Model
     public function vaccinations(){
         return $this->belongsToMany(Vaccination::class)->withPivot('data_di_vaccinazione', 'dosaggio', 'note_vaccino');
     }
-    public function disease(){
+    public function diseases(){
         return $this->belongsToMany(disease::class)->withPivot('data_di_ricovero', 'trattamento', 'note_vaccino');
     }
 }

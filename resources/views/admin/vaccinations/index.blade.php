@@ -56,6 +56,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        <!-- Vaccination Create Button -->
                         <tr class="text-center">
                             <td colspan="3" class="py-4">
                                 <a href="{{ route('admin.vaccinations.create') }}" class="text-decoration-none">Aggiungi una Nuova Vaccinazione</a>
