@@ -9,7 +9,7 @@
             </div>
             <!-- Link To Animals List -->
             <div class="col-6 d-flex justify-content-end align-items-end mt-5">
-                <a href="{{ route('admin.animals.index') }}" class="btn btn-primary">Lista Animali</a>
+                <a href="{{ route('admin.animals.index') }}" class="btn btn-info btn-bool-pet-care">Lista Animali</a>
             </div>
             <!-- Create Form -->
             <div class="col-12 my-5">
@@ -110,7 +110,7 @@
                     </div>
                     <!-- Edit Submit Button -->
                     <div class="col-12 d-flex justify-content-center align-items-center my-5">
-                        <button type="submit" class="btn btn-warning fw-bold px-5">MODIFICA</button>
+                        <button type="submit" class="btn btn-info btn-bool-pet-care fw-bold px-5">MODIFICA</button>
                     </div>
                 </form>
             </div>

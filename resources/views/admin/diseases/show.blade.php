@@ -9,7 +9,7 @@
             </div>
             <!-- Link To Disease List -->
             <div class="col-6 d-flex justify-content-end align-items-end my-5">
-                <a href="{{ Route('admin.diseases.index') }}" class="btn btn-primary">Lista Malattie</a>
+                <a href="{{ Route('admin.diseases.index') }}" class="btn btn-info btn-bool-pet-care">Lista Malattie</a>
             </div>
             <!-- Create, Edit Confirm Message -->
             @if (session('message'))
@@ -49,7 +49,7 @@
                                                     <p class="card-text">{{ $animal->genere }}</p>
                                                 </div>
                                                 <div class="card-footer py-3">
-                                                    <a href="{{ route('admin.animals.show', $animal) }}" class="btn btn-primary">Informazioni Animale</a>
+                                                    <a href="{{ route('admin.animals.show', $animal) }}" class="btn btn-info btn-bool-pet-care">Informazioni Animale</a>
                                                 </div>
                                             </div>
                                         </div>

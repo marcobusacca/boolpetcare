@@ -9,7 +9,7 @@
             </div>
             <!-- Link To Animals List -->
             <div class="col-6 d-flex justify-content-end align-items-end my-5">
-                <a href="{{ Route('admin.animals.index') }}" class="btn btn-primary">Lista Animali</a>
+                <a href="{{ Route('admin.animals.index') }}" class="btn btn-info btn-bool-pet-care">Lista Animali</a>
             </div>
             <!-- Create, Edit Confirm Message -->
             @if (session('message'))
@@ -62,7 +62,7 @@
                                 <label class="fw-bold">Vaccinazioni:</label>
                                 <!-- List of Vaccinations -->
                                 @foreach ($animal->vaccinations as $vaccination)
-                                    <a href="{{ route('admin.vaccinations.show', $vaccination) }}" class="btn btn-sm btn-primary mx-1">{{ $vaccination->nome }}</a>
+                                    <a href="{{ route('admin.vaccinations.show', $vaccination) }}" class="btn btn-sm btn-info btn-bool-pet-care mx-1">{{ $vaccination->nome }}</a>
                                 @endforeach
                             @endif
                         </div>
@@ -75,7 +75,7 @@
                                 <label class="fw-bold">Malattie:</label>
                                 <!-- List of Diseases -->
                                 @foreach ($animal->diseases as $disease)
-                                    <a href="{{ route('admin.diseases.show', $disease) }}" class="btn btn-sm btn-primary mx-1">{{ $disease->nome }}</a>
+                                    <a href="{{ route('admin.diseases.show', $disease) }}" class="btn btn-sm btn-info btn-bool-pet-care mx-1">{{ $disease->nome }}</a>
                                 @endforeach
                             @endif
                         </div>

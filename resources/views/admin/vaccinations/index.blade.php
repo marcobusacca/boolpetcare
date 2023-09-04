@@ -9,7 +9,7 @@
             </div>
             <!-- Link To Dashboard -->
             <div class="col-6 d-flex justify-content-end align-items-end my-5">
-                <a href="{{ Route('admin.dashboard') }}" class="btn btn-primary">Dashboard</a>
+                <a href="{{ Route('admin.dashboard') }}" class="btn btn-info btn-bool-pet-care">Dashboard</a>
             </div>
             <!-- Delete Confirm Message -->
             @if (session('message'))

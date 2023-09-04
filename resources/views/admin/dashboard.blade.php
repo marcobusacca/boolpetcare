@@ -27,7 +27,7 @@
                 </div>
             </nav>
         </div>
-        <div class="col-9">
+        <div class="col-9 p-5">
             <div class="card">
                 <div class="card-header">{{ __('La tua Dashboard') }}</div>
 

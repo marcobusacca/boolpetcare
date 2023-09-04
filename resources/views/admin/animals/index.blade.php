@@ -10,14 +10,14 @@
             <div class="col-6 d-flex justify-content-center align-items-center">
                 <div class="form-group">
                     <form method="get" action="search" class="d-flex justify-content-start align-items-center my-5">
-                        <input class="form-control" name="search" placeholder="Search..." value="{{ isset($search) ? $search : '' }}">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <input class="form-control border-none" name="search" placeholder="Ricerca..." value="{{ isset($search) ? $search : '' }}">
+                        <button type="submit" class="btn btn-info btn-bool-pet-care border-none mx-2">Ricerca</button>
                     </form>
                 </div>
             </div>
             <!-- Link To Dashboard -->
             <div class="col-3 d-flex justify-content-end align-items-center my-5">
-                <a href="{{ Route('admin.dashboard') }}" class="btn btn-primary">Dashboard</a>
+                <a href="{{ Route('admin.dashboard') }}" class="btn btn-info btn-bool-pet-care">Dashboard</a>
             </div>
             <!-- Delete Confirm Message -->
             @if (session('message'))
