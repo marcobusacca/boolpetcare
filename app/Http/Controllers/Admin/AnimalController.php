@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
 use App\Models\Vaccination;
+use App\Models\Disease;
 use App\Http\Requests\StoreAnimalRequest;
 use App\Http\Requests\UpdateAnimalRequest;
 use Illuminate\Http\Request;
@@ -61,7 +62,9 @@ class AnimalController extends Controller
     {
         $vaccinations = Vaccination::all();
 
-        return view('admin.animals.create', compact('vaccinations'));
+        $diseases = Disease::all();
+
+        return view('admin.animals.create', compact('vaccinations', 'diseases'));
     }
 
     /**
@@ -80,7 +83,7 @@ class AnimalController extends Controller
 
         $animal->save();
 
-        // GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
+        // GESTIONE RELAZIONI MANY-TO-MANY
 
             // if ($request->has('vaccinations')){
 
@@ -108,7 +111,12 @@ class AnimalController extends Controller
                 $animal->vaccinations()->attach($request->vaccinations);
             }
 
-        // FINE GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
+            if ($request->has('diseases')){
+
+                $animal->diseases()->attach($request->diseases);
+            }
+
+        // FINE GESTIONE RELAZIONI MANY-TO-MANY
 
         $nome_animale = $animal->nome;
 
@@ -125,7 +133,9 @@ class AnimalController extends Controller
     {
         $vaccinations = Vaccination::all();
 
-        return view('admin.animals.edit', compact('animal', 'vaccinations'));
+        $diseases = Disease::all();
+
+        return view('admin.animals.edit', compact('animal', 'vaccinations', 'diseases'));
     }
 
     /**
@@ -139,8 +149,7 @@ class AnimalController extends Controller
     {
         $form_data = $request->all();
 
-        // GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
-
+        // GESTIONE RELAZIONI MANY-TO-MANY
             // if ($request->has('vaccinations')){
 
             //     $animal->vaccinations()->detach();
@@ -169,8 +178,13 @@ class AnimalController extends Controller
                 $animal->vaccinations()->sync($request->vaccinations);
             }
 
-        // FINE GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
+            if ($request->has('diseases')){
 
+                $animal->diseases()->sync($request->diseases);
+            }
+
+        // FINE GESTIONE RELAZIONI MANY-TO-MANY
+        
         $nome_animale = $animal->nome;
 
         $animal->update($form_data);

@@ -78,6 +78,25 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <!-- Animal Disease Form Group -->
+                    <div class="form-group my-4">
+                        <!-- Animal Disease Label -->
+                        <span>Seleziona le Malattie dell'Animale:</span>
+                        <!-- Animal Disease ForEach -->
+                        @foreach ($diseases as $disease)
+                            <!-- Disease CheckBox Form Group -->
+                            <div class="my-2">
+                                <!-- Disease CheckBox -->
+                                <input type="checkbox" name="diseases[]" class="form-check-input @error('diseases') is-invalid @enderror" value="{{ $vaccination->id }}" {{ in_array($disease->id, old('diseases', [])) ? 'checked' : '' }}>
+                                <!-- Disease Label -->
+                                <label class="form-check-label">{{ $disease->nome }}</label>
+                            </div>
+                        @endforeach
+                        <!-- Disease CheckBox Error Text -->
+                        @error('diseases')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <!-- Create Submit Button -->
                     <div class="col-12 d-flex justify-content-center align-items-center my-5">
                         <button class="btn btn-success fw-bold px-5" type="submit">CREA</button>

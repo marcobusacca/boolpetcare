@@ -33,6 +33,7 @@ class StoreAnimalRequest extends FormRequest
 
             
             'vaccinations' => 'exists:vaccinations,id',
+            'diseases' => 'exists:diseases,id',
         ];
     }
 
@@ -47,6 +48,8 @@ class StoreAnimalRequest extends FormRequest
 
             
             'vaccinations.exists' => 'Vaccinazione selezionata non valida',
+
+            'diseases.exists' => 'Malattia selezionata non valida',
         ];
     }
 }

@@ -84,6 +84,30 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <!-- Disease Vaccination Form Group -->
+                    <div class="form-group my-4">
+                        <!-- Disease Vaccination Label -->
+                        <span>Seleziona le Malattie dell'Animale:</span>
+                        <!-- Disease Vaccination ForEach -->
+                        @foreach ($diseases as $disease)
+                            <!-- Disease CheckBox Form Group -->
+                            <div class="my-2">
+                                @if ($errors->any())
+                                    <!-- Disease CheckBox -->
+                                    <input type="checkbox" name="diseases[]" class="form-check-input @error('diseases') is-invalid @enderror" value="{{ $disease->id }}" {{ in_array($disease->id, old('diseases', [])) ? 'checked' : '' }}>
+                                @else
+                                    <!-- Disease CheckBox -->
+                                    <input type="checkbox" name="diseases[]" class="form-check-input @error('diseases') is-invalid @enderror" value="{{ $disease->id }}" {{ $animal->diseases->contains($disease) ? 'checked' : ''}}>
+                                @endif
+                                <!-- Disease Label -->
+                                <label class="form-check-label">{{ $disease->nome }}</label>
+                            </div>
+                        @endforeach
+                        <!-- Disease CheckBox Error Text -->
+                        @error('diseases')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <!-- Edit Submit Button -->
                     <div class="col-12 d-flex justify-content-center align-items-center my-5">
                         <button type="submit" class="btn btn-warning fw-bold px-5">MODIFICA</button>
