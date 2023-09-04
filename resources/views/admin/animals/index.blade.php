@@ -4,11 +4,19 @@
     <div class="container">
         <div class="row">
             <!-- Index Title -->
-            <div class="col-6 d-flex justify-content-start align-items-end my-5">
+            <div class="col-3 d-flex justify-content-start align-items-end my-5">
                 <h1>Lista Animali</h1>
             </div>
+            <div class="col-6 d-flex justify-content-center align-items-center">
+                <div class="form-group">
+                    <form method="get" action="search" class="d-flex justify-content-start align-items-center my-5">
+                        <input class="form-control" name="search" placeholder="Search..." value="{{ isset($search) ? $search : '' }}">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
             <!-- Link To Dashboard -->
-            <div class="col-6 d-flex justify-content-end align-items-end my-5">
+            <div class="col-3 d-flex justify-content-end align-items-center my-5">
                 <a href="{{ Route('admin.dashboard') }}" class="btn btn-primary">Dashboard</a>
             </div>
             <!-- Delete Confirm Message -->

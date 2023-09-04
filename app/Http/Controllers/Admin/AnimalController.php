@@ -7,6 +7,7 @@ use App\Models\Animal;
 use App\Models\Vaccination;
 use App\Http\Requests\StoreAnimalRequest;
 use App\Http\Requests\UpdateAnimalRequest;
+use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
@@ -21,6 +22,24 @@ class AnimalController extends Controller
 
         return view('admin.animals.index', compact('animals'));
     }
+
+    public function search(Request $request){
+        $query = Animal::query();
+        
+            if(isset($request->search) && ($request->search !=null)){
+
+            $query->where('nome', 'LIKE', '%'.$request->search.'%');
+
+            $animals = $query->get();
+            }
+            else{
+                $animals = Animal::all();
+            }
+
+        return view('admin.animals.index', compact('animals'));
+    }
+
+
 
     /**
      * Display the specified resource.
