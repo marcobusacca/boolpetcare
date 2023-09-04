@@ -1,3 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+.color {
+    height: calc(100vh - 100px);
+    background-color: #23B5BF;
+}
