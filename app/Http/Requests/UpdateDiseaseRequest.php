@@ -13,7 +13,7 @@ class UpdateDiseaseRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class UpdateDiseaseRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nome' => 'required|max:50',
+        ];
+    }
+
+    public function messages(){
+        return [
+            'nome.required' => 'Il nome della malattia è obbligatorio',
+            'nome.max' => 'Il nome della malattia deve avere massimo :max caratteri',
         ];
     }
 }

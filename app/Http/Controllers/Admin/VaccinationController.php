@@ -71,8 +71,6 @@ class VaccinationController extends Controller
      */
     public function edit(Vaccination $vaccination)
     {
-        $vaccinations = Vaccination::all();
-
         return view('admin.vaccinations.edit', compact('vaccination'));
     }
 

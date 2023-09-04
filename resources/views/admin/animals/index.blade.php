@@ -67,6 +67,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        <!-- Animal Create Button -->
                         <tr class="text-center">
                             <td colspan="4" class="py-4">
                                 <a href="{{ route('admin.animals.create') }}" class="text-decoration-none">Aggiungi un Nuovo Animale</a>

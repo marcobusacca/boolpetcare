@@ -22,27 +22,6 @@ class DiseaseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreDiseaseRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreDiseaseRequest $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Disease  $disease
@@ -54,6 +33,37 @@ class DiseaseController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.diseases.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreDiseaseRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreDiseaseRequest $request)
+    {
+        $form_data = $request->all();
+
+        $disease = new Disease();
+
+        $disease->fill($form_data);
+
+        $disease->save();
+
+        $nome_malattia = $disease->nome;
+
+        return redirect()->route('admin.diseases.show', compact('disease'))->with('message', "Malattia: '$nome_malattia' Creata Correttamente");
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Disease  $disease
@@ -61,7 +71,7 @@ class DiseaseController extends Controller
      */
     public function edit(Disease $disease)
     {
-        //
+        return view('admin.diseases.edit', compact('disease'));
     }
 
     /**
@@ -73,7 +83,13 @@ class DiseaseController extends Controller
      */
     public function update(UpdateDiseaseRequest $request, Disease $disease)
     {
-        //
+        $form_data = $request->all();
+
+        $nome_malattia = $disease->nome;
+
+        $disease->update($form_data);
+
+        return redirect()->route('admin.diseases.show', compact('disease'))->with('message', "Malattia: '$nome_malattia' Modificata Correttamente");
     }
 
     /**
@@ -84,6 +100,12 @@ class DiseaseController extends Controller
      */
     public function destroy(Disease $disease)
     {
-        //
+        $disease->animals()->detach();
+
+        $nome_malattia = $disease->nome;
+
+        $disease->delete();
+
+        return redirect()->route('admin.diseases.index')->with('message', "Malattia: '$nome_malattia' Cancellata Correttamente");
     }
 }
