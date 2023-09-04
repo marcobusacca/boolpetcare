@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\AnimalController as AnimalController;
 use App\Http\Controllers\Admin\VaccinationController as VaccinationController;
+use App\Http\Controllers\Admin\DiseaseController as DiseaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,10 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('animals', AnimalController::class);
-    Route::resource('vaccinations', VaccinationController::class);
     Route::get('search',[AnimalController::class, 'search']);
+    Route::resource('vaccinations', VaccinationController::class);
+    Route::resource('diseases', DiseaseController::class);
+
 });
 
 Route::middleware('auth')->group(function () {
