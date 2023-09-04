@@ -16,7 +16,9 @@ class DiseaseController extends Controller
      */
     public function index()
     {
-        //
+        $diseases = Disease::all();
+
+        return view('admin.diseases.index', compact('diseases'));
     }
 
     /**
@@ -48,7 +50,7 @@ class DiseaseController extends Controller
      */
     public function show(Disease $disease)
     {
-        //
+        return view('admin.diseases.show', compact('disease'));
     }
 
     /**
