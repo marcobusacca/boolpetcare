@@ -53,6 +53,19 @@
                                 <p class="d-inline-block">{{ $animal->note_aggiuntive }}</p>
                             </div>
                         @endif
+                        <!-- Animal Vaccinations -->
+                        <div class="my-5">
+                            @if (count($animal->vaccinations) == 0)
+                                <span>Nessuna Vaccinazione Registrata</span>
+                            @else
+                                <!-- Vaccinations Label -->
+                                <label class="fw-bold">Vaccinazioni:</label>
+                                <!-- List of Vaccinations -->
+                                @foreach ($animal->vaccinations as $vaccination)
+                                    <a href="{{ route('admin.vaccinations.show', $vaccination) }}" class="btn btn-sm btn-primary mx-1">{{ $vaccination->nome }}</a>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

@@ -63,31 +63,31 @@ class AnimalController extends Controller
 
         // GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
 
-            if ($request->has('vaccinations')){
-
-                $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
-
-                $DosageArray = array_values(array_filter($request->dosaggio));
-
-                $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
-
-                foreach($request->vaccinations as $index => $vaccination){
-
-                    $animal->vaccinations()->attach($vaccination, [
-
-                        'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
-
-                        'dosaggio' => $DosageArray[$index],
-
-                        'note_vaccino' => $NoteOfVaccinationArray[$index],
-                    ]);   
-                }
-            }
-
             // if ($request->has('vaccinations')){
 
-            //     $animal->vaccinations()->attach($request->vaccinations);
+            //     $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
+
+            //     $DosageArray = array_values(array_filter($request->dosaggio));
+
+            //     $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
+
+            //     foreach($request->vaccinations as $index => $vaccination){
+
+            //         $animal->vaccinations()->attach($vaccination, [
+
+            //             'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
+
+            //             'dosaggio' => $DosageArray[$index],
+
+            //             'note_vaccino' => $NoteOfVaccinationArray[$index],
+            //         ]);   
+            //     }
             // }
+
+            if ($request->has('vaccinations')){
+
+                $animal->vaccinations()->attach($request->vaccinations);
+            }
 
         // FINE GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
 
@@ -122,27 +122,32 @@ class AnimalController extends Controller
 
         // GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)
 
+            // if ($request->has('vaccinations')){
+
+            //     $animal->vaccinations()->detach();
+
+            //     $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
+
+            //     $DosageArray = array_values(array_filter($request->dosaggio));
+
+            //     $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
+
+            //     foreach($request->vaccinations as $index => $vaccination){
+
+            //         $animal->vaccinations()->attach($vaccination, [
+
+            //             'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
+
+            //             'dosaggio' => $DosageArray[$index],
+
+            //             'note_vaccino' => $NoteOfVaccinationArray[$index],
+            //         ]);   
+            //     }
+            // }
+
             if ($request->has('vaccinations')){
 
-                $animal->vaccinations()->detach();
-
-                $DateOfVaccinationArray = array_values(array_filter($request->data_di_vaccinazione));
-
-                $DosageArray = array_values(array_filter($request->dosaggio));
-
-                $NoteOfVaccinationArray = array_values(array_filter($request->note_vaccino));
-
-                foreach($request->vaccinations as $index => $vaccination){
-
-                    $animal->vaccinations()->attach($vaccination, [
-
-                        'data_di_vaccinazione' => $DateOfVaccinationArray[$index],
-
-                        'dosaggio' => $DosageArray[$index],
-
-                        'note_vaccino' => $NoteOfVaccinationArray[$index],
-                    ]);   
-                }
+                $animal->vaccinations()->sync($request->vaccinations);
             }
 
         // FINE GESTIONE RELAZIONE MANY-TO-MANY (ANIMAL_VACCINATION)

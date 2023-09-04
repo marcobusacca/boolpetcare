@@ -65,47 +65,12 @@
                         <span>Seleziona le Vaccinazioni Effettuate:</span>
                         <!-- Animal Vaccination ForEach -->
                         @foreach ($vaccinations as $vaccination)
-                            <div class="mb-5">
-                                <!-- Vaccination CheckBox Form Group -->
-                                <div class="my-2">
-                                    <!-- Vaccination CheckBox -->
-                                    <input type="checkbox" name="vaccinations[]" class="form-check-input @error('vaccinations') is-invalid @enderror" value="{{ $vaccination->id }}" {{ in_array($vaccination->id, old('vaccinations', [])) ? 'checked' : '' }}>
-                                    <!-- Vaccination Label -->
-                                    <label class="form-check-label">{{ $vaccination->nome }}</label>
-                                </div>
-                                <!-- Data Di Vaccinazione Form Group -->
-                                <div class="my-2">
-                                    <!-- Data Di Vaccinazione Label -->
-                                    <label class="form-check-label">Data di Vaccinazione:</label>
-                                    <!-- Data Di Vaccinazione Input Date -->
-                                    <input type="date" name="data_di_vaccinazione[]" class="form-control @error('data_di_vaccinazione') is-invalid @enderror">
-                                    <!-- Data Di Vaccinazione Error Text -->
-                                    @error('data_di_vaccinazione')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <!-- Dosaggio Form Group -->
-                                <div class="my-2">
-                                    <!-- Dosaggio Label -->
-                                    <label class="form-check-label">Dosaggio della Vaccinazione:</label>
-                                    <!-- Dosaggio Input Text -->
-                                    <input type="text" name="dosaggio[]" placeholder="Inserisci il dosaggio" class="form-control @error('dosaggio') is-invalid @enderror">
-                                    <!-- Dosaggio Error Text -->
-                                    @error('dosaggio')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <!-- Note Del Vaccino Form Group -->
-                                <div class="my-2">
-                                    <!-- Note Del Vaccino Label -->
-                                    <label class="form-check-label">Note Aggiuntive:</label>
-                                    <!-- Note Del Vaccino TextArea -->
-                                    <textarea name="note_vaccino[]" placeholder="Inserisci le note aggiuntive della vaccinazione" class="form-control @error('note_vaccino') is-invalid @enderror"></textarea>
-                                    <!-- Note Del Vaccino Error Text -->
-                                    @error('note_vaccino')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
+                            <!-- Vaccination CheckBox Form Group -->
+                            <div class="my-2">
+                                <!-- Vaccination CheckBox -->
+                                <input type="checkbox" name="vaccinations[]" class="form-check-input @error('vaccinations') is-invalid @enderror" value="{{ $vaccination->id }}" {{ in_array($vaccination->id, old('vaccinations', [])) ? 'checked' : '' }}>
+                                <!-- Vaccination Label -->
+                                <label class="form-check-label">{{ $vaccination->nome }}</label>
                             </div>
                         @endforeach
                         <!-- Vaccination CheckBox Error Text -->
