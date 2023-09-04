@@ -58,9 +58,9 @@ class VaccinationController extends Controller
 
         $vaccination->save();
 
-        $name_vaccination = $vaccination->name;
+        $nome_vaccinazione = $vaccination->nome;
 
-        return redirect()->route('admin.vaccinations.show', compact('vaccination'))->with('message', "Vaccino: '$name_vaccination' Creato Correttamente");
+        return redirect()->route('admin.vaccinations.show', compact('vaccination'))->with('message', "Vaccino: '$nome_vaccinazione' Creato Correttamente");
     }
 
     /**
@@ -87,11 +87,11 @@ class VaccinationController extends Controller
     {
         $form_data = $request->all();
 
-        $name_vaccination = $vaccination->name;
+        $nome_vaccinazione = $vaccination->nome;
 
         $vaccination->update($form_data);
 
-        return redirect()->route('admin.vaccinations.show', compact('vaccination'))->with('message', "Vaccino: '$name_vaccination' Modificato Correttamente");
+        return redirect()->route('admin.vaccinations.show', compact('vaccination'))->with('message', "Vaccino: '$nome_vaccinazione' Modificato Correttamente");
     }
 
     /**
@@ -104,10 +104,10 @@ class VaccinationController extends Controller
     {
         $vaccination->animals()->detach();
 
-        $nome_vaccination = $vaccination->nome;
+        $nome_vaccinazione = $vaccination->nome;
 
         $vaccination->delete();
 
-        return redirect()->route('admin.vaccinations.index')->with('message', "Vaccino: '$nome_vaccination' Cancellato Correttamente");
+        return redirect()->route('admin.vaccinations.index')->with('message', "Vaccino: '$nome_vaccinazione' Cancellato Correttamente");
     }
 }

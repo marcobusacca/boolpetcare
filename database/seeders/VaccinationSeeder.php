@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Vaccination;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
+
 
 class VaccinationSeeder extends Seeder
 {
@@ -14,14 +14,17 @@ class VaccinationSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        for ($i = 1; $i <= 10; $i++){
+        $vaccinations = config('vaccinations');
+
+        foreach ($vaccinations as $item) {
+            
             $vaccination = new Vaccination();
 
-            $vaccination->nome = $faker->word();
-    
-            $vaccination->save();
+            $vaccination->nome = $item['nome'];
+
+            $comic->save();
         }
     }
 }

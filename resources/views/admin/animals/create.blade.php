@@ -31,7 +31,7 @@
                         <!-- Data Di Nascita Label -->
                         <label class="control-label">Data di nascita:</label>
                         <!-- Data Di Nascita Input Date -->
-                        <input type="date" name="data_di_nascita" id="data_di_nascita" placeholder="Inserisci data di nascita" class="form-control @error('data_di_nascita') is-invalid @enderror" value="{{ old('data_di_nascita') }}" required>
+                        <input type="date" name="data_di_nascita" id="data_di_nascita" class="form-control @error('data_di_nascita') is-invalid @enderror" value="{{ old('data_di_nascita') }}" required>
                         <!-- Data Di Nascita Error Text -->
                         @error('data_di_nascita')
                             <div class="text-danger">{{ $message }}</div>
@@ -42,7 +42,7 @@
                         <!-- Genere Label -->
                         <label class="control-label">Genere:</label>
                         <!-- Genere Input Text -->
-                        <input type="text" name="genere" id="genere" placeholder="Inserisci genere" class="form-control @error('genere') is-invalid @enderror" value="{{ old('genere') }}" required>
+                        <input type="text" name="genere" id="genere" placeholder="Inserisci il genere" class="form-control @error('genere') is-invalid @enderror" value="{{ old('genere') }}" required>
                         <!-- Genere Error Text -->
                         @error('genere')
                             <div class="text-danger">{{ $message }}</div>
@@ -53,14 +53,14 @@
                         <!-- Note Aggiuntive Label -->
                         <label class="control-label">Note aggiuntive:</label>
                         <!-- Note Aggiuntive TextArea -->
-                        <textarea name="note_aggiuntive" id="note_aggiuntive" placeholder="Inserisci note aggiuntive" class="form-control @error('note_aggiuntive') is-invalid @enderror">{{ old('note_aggiuntive') }}</textarea>
+                        <textarea name="note_aggiuntive" id="note_aggiuntive" placeholder="Inserisci le note aggiuntive dell'animale" class="form-control @error('note_aggiuntive') is-invalid @enderror">{{ old('note_aggiuntive') }}</textarea>
                         <!-- Note Aggiuntive Error Text -->
                         @error('note_aggiuntive')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <!-- Animal Vaccination Form Group -->
-                    {{-- <div class="form-group my-4">
+                    <div class="form-group my-4">
                         <!-- Animal Vaccination Label -->
                         <span>Seleziona le Vaccinazioni Effettuate:</span>
                         <!-- Animal Vaccination ForEach -->
@@ -78,7 +78,7 @@
                                     <!-- Data Di Vaccinazione Label -->
                                     <label class="form-check-label">Data di Vaccinazione:</label>
                                     <!-- Data Di Vaccinazione Input Date -->
-                                    <input type="date" name="data_di_vaccinazione[]" placeholder="Inserisci data di vaccinazione" class="form-control @error('data_di_vaccinazione') is-invalid @enderror">
+                                    <input type="date" name="data_di_vaccinazione[]" class="form-control @error('data_di_vaccinazione') is-invalid @enderror">
                                     <!-- Data Di Vaccinazione Error Text -->
                                     @error('data_di_vaccinazione')
                                         <div class="text-danger">{{ $message }}</div>
@@ -100,7 +100,7 @@
                                     <!-- Note Del Vaccino Label -->
                                     <label class="form-check-label">Note Aggiuntive:</label>
                                     <!-- Note Del Vaccino TextArea -->
-                                    <textarea name="note_vaccino[]" placeholder="Inserisci note aggiuntive" class="form-control @error('note_vaccino') is-invalid @enderror"></textarea>
+                                    <textarea name="note_vaccino[]" placeholder="Inserisci le note aggiuntive della vaccinazione" class="form-control @error('note_vaccino') is-invalid @enderror"></textarea>
                                     <!-- Note Del Vaccino Error Text -->
                                     @error('note_vaccino')
                                         <div class="text-danger">{{ $message }}</div>
@@ -112,10 +112,10 @@
                         @error('vaccinations')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div> --}}
+                    </div>
                     <!-- Create Submit Button -->
                     <div class="col-12 d-flex justify-content-center align-items-center my-5">
-                        <button type="submit" class="btn btn-success fw-bold px-5">CREA</button>
+                        <button class="btn btn-success fw-bold px-5" type="submit">CREA</button>
                     </div>
                 </form>
             </div>
